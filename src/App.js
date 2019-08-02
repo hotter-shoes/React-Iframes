@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import ZMags from "./views/zmags";
+import DotDigital from "./views/dotdigital";
+import LiveHelp from "./views/livehelp";
+
 import './App.css';
 
-function App() {
+
+
+class Header extends React.Component{
+
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/zmags">Zmags</Link>
+          </li>
+          <li>
+            <Link to="/dotdigital">DotDigital</Link>
+          </li>
+          <li>
+            <Link to="/livehelp">LiveHelp</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        <Route path="/zmags" component={ZMags} />
+        <Route path="/dotdigital" component={DotDigital} />
+        <Route path="/livehelp" component={LiveHelp} />
+      </div>
+    </Router>
   );
+  }
 }
 
-export default App;
+export default Header;
