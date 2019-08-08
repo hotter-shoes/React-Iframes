@@ -13,7 +13,7 @@ class DotDigital extends React.Component{
 
     const src = url.base + url.landing_page_path
   return (
-    <IFrame src={src}></IFrame>
+    <IFrame src={src} id="dotdigital"></IFrame>
   );
   }
 }

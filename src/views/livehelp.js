@@ -22,7 +22,7 @@ class LiveHelp extends React.Component{
    var params = url.params.map(item=>item.k+"="+item.v).join("&");
    var src = url.base + "?"+ params;
   return (
-    <IFrame src={src}></IFrame>
+    <IFrame src={src} id="livehelp"></IFrame>
   );
   }
 }

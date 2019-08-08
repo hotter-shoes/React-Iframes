@@ -13,7 +13,7 @@ class Zmags extends React.Component{
   const src = url.base + "#" + url.zmag_id;
 
   return (
-    <IFrame src={src}></IFrame>
+    <IFrame src={src} id="zmags"></IFrame>
   );
   }
 }
