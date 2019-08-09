@@ -15,7 +15,20 @@ class IFrame extends React.Component{
     };
 
 
+    /*setting this to false will prevent the iframe from being updated when state changes*/
+    shouldComponentUpdate(){
+        if(this.props.rerender){
+            console.log("%c RE-RENDERING IFRAME " + this.props.id,"background:red;color:white;padding:5px 0")
+            return true; 
+        }else{
+            console.log("%c NOT RE-RENDERING IFRAME " + this.props.id,"background:gold;color:black;padding:5px 0")
+            return false; 
+        }
+    }
+
+
     componentDidMount(){
+        console.log("%c RENDERING IFRAME 1st TIME " + this.props.id,"background:green;color:white;padding:5px 0")
         ReactGA.event({
             category: 'Content',
             action: 'Viewed Iframe',
