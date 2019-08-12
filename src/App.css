@@ -1,5 +1,6 @@
 .iframe-container {
     height: 100%;
+    position: relative;
 }
 
 .hidden {
@@ -43,4 +44,22 @@
 
 iframe {
     border: none;
+    margin: 0 auto;
+    display: block;
 }
+
+.loading{
+  background: #191919;
+  opacity: 0.4;
+}
+
+.loaded{
+  animation: fadeIn 1;
+}
+
+@keyframes fadeIn{
+  from{opacity: 0.4; background: #191919;}
+  to{opacity: 1; background: blue;}
+}
+
+

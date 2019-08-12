@@ -39,7 +39,7 @@ class PopUp extends React.Component{
                 <button className="show-pop-up" onClick={this.handleClick}>{this.props.btnText}</button>
                 <div className={popUpClass}>
                     <button onClick={this.handleClick}>Close</button>
-                    {this.state.clicked && <ResponsiveIFrame src={this.props.src} width={this.props.width} height={this.props.height}/> }
+                    {this.state.clicked && <ResponsiveIFrame id={this.props.id} src={this.props.src} width={this.props.width} height={this.props.height}/> }
                 </div>
              
             </div>

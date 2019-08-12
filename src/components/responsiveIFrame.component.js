@@ -51,7 +51,7 @@ function Zmags(props) {
                 src={props.src}
                 height={dimensions.height}
                 width={dimensions.width}
-                id="zmags"/>}
+                id={props.id}/>}
         </div>
     )
 
