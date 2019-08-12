@@ -31,7 +31,7 @@ class IFrame extends React.Component {
             console.log("%c RE-RENDERING IFRAME - RESIZE " + this.props.id, "background:darkred;color:white;padding:5px 0");
             return true;
         } else if (this.state.loading !== nextState.loading) {
-            console.log("%c RE-RENDERING IFRAME -Finished Loading " + this.props.id, "background:red;color:white;padding:5px 0");
+            console.log("%c RE-RENDERING IFRAME -Finished Loading " + this.props.id, "background:orange;color:black;padding:5px 0");
             return true;
         } else {
             console.log("%c NOT RE-RENDERING IFRAME " + this.props.id, "background:gold;color:black;padding:5px 0")
