@@ -14,9 +14,8 @@ class IFrame extends React.Component {
         noscrolling: ""
     };
 
-    /*setting this to false will prevent the iframe from being updated when state changes*/
+    /*setting will only re-render the iframe if it detects the dimensions have been changed.*/
     shouldComponentUpdate(nextProps) {
-
         if (this.props.height !== nextProps.height || this.props.width !== nextProps.width) {
             console.log("%c RE-RENDERING IFRAME " + this.props.id, "background:red;color:white;padding:5px 0");
             return true;
@@ -38,7 +37,6 @@ class IFrame extends React.Component {
                     id: this.props.id
                 }
             }
-
         })
 
     }
