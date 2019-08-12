@@ -24,7 +24,9 @@ class IFrame extends React.Component {
         noscrolling: ""
     };
 
-    /*setting will only re-render the iframe if it detects the dimensions have been changed.*/
+    /*will only re-render the iframe if it detects the dimensions have been changed.
+    * Component needs to re-render to remove loading class, this doesnt impact iframe though.
+    */
     shouldComponentUpdate(nextProps, nextState) {
 
         if (this.props.height !== nextProps.height || this.props.width !== nextProps.width) {
