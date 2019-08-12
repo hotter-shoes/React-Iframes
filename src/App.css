@@ -1,17 +1,18 @@
-.iframe_cont {
+.iframe-container {
     height: 100%;
 }
 
 .hidden {
     display: none;
 }
-#pop-up {
+.pop-up-container {
     position: relative;
-
-    height: 200px;
+    height:150px;
+    display:inline-block;
+    width:50%;
 }
 
-#pop-up button.open {
+.pop-up-container button.show-pop-up {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -23,10 +24,10 @@
     background: white;
     color: #0099a8;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 22px;
 }
 
-#pop-up .pop-up {
+.pop-up-container .pop-up {
     position: fixed;
     max-height: 80%;
     width: 80%;
@@ -36,8 +37,10 @@
     box-shadow: 0 15px 20px 0;
     overflow: auto;
     z-index: 2;
+    top:0;
+    left:0;
 }
 
-#pop-up iframe {
+.pop-up-container iframe {
     border: none;
 }

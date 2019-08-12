@@ -14,8 +14,6 @@ function Zmags(props) {
     const [dimensions,
         setDimensions] = useState({height: null, width: null});
 
-    const [rerender,setRerender] = useState(false);
-
     /*references the ZMags component DOM*/
     const ref = useRef(null);
 
@@ -23,39 +21,37 @@ function Zmags(props) {
     useEffect(() => {
         if (!ref.current || !ref.current.getBoundingClientRect().width) 
             return;
+        
         const [iframeWidth,
             iframeHeight] = calculateDimensions(props.height, props.width, ref.current.getBoundingClientRect().width)
         setDimensions({height: iframeHeight, width: iframeWidth});
-        setRerender(false);
     }, [ref, props]);
 
     /*set up a debounced resize script which when triggered will set the height and width of the iframe*/
     useEffect(() => {
         const debouncedHandleResize = debounce(function handleResize() {
-
+            console.log("resize detected");
             const [iframeWidth,
                 iframeHeight] = calculateDimensions(props.height, props.width, ref.current.getBoundingClientRect().width)
             setDimensions({height: iframeHeight, width: iframeWidth});
-            setRerender(true);
-        }, 500)
 
+        }, 500)
 
         window.addEventListener('resize', debouncedHandleResize);
 
-        /*returning a function in use effects acts as a call back, allowing clean up of the event listener*/
+        /*returning a function in useEffect acts as a call back, allowing clean up of the event listener*/
         return _ => {
             window.removeEventListener('resize', debouncedHandleResize);
         }
     })
 
     return (
-        <div id="zmags" ref={ref}>
+        <div className="responsive-iframe" ref={ref}>
             {dimensions.height && dimensions.width && <IFrame
                 src={props.src}
                 height={dimensions.height}
                 width={dimensions.width}
-                id="zmags"
-                rerender={rerender}/>}
+                id="zmags"/>}
         </div>
     )
 

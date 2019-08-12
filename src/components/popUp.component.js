@@ -35,8 +35,8 @@ class PopUp extends React.Component{
         const popUpClass  = this.state.hidden?"pop-up hidden":"pop-up";
         return(
        
-            <div id="pop-up" data-content="zmags">
-                <button className="open" onClick={this.handleClick}>{this.props.btnText}</button>
+            <div className="pop-up-container">
+                <button className="show-pop-up" onClick={this.handleClick}>{this.props.btnText}</button>
                 <div className={popUpClass}>
                     <button onClick={this.handleClick}>Close</button>
                     {this.state.clicked && <ResponsiveIFrame src={this.props.src} width={this.props.width} height={this.props.height}/> }
